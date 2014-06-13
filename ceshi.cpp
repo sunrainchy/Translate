@@ -14,3 +14,6 @@ int main(){
 	cout<<vec[0][0][0]<<endl;
 	return 0;
 }
+
+
+add by chy
