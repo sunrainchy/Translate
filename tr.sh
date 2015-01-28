@@ -8,7 +8,7 @@ do
     then
         if [ "$word" != "" ]
         then
-            reset
+            clear
             echo $word "翻译结果（英->中):"
             chy $word
         fi
