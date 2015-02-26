@@ -25,7 +25,7 @@ int cmp(const void *a,const void *b){
 int get_content(char *html_content)
 {
 	out_ans(html_content);
-	//printf("%s\n",html_content);
+	//printf("%s",html_content);
 	char *ss_start = NULL;
 	char *se_end = NULL;
 	char *ss = "Color='#fff'\">";
@@ -181,6 +181,7 @@ bool is_ok(char *str){
 	}
 	return true;
 }
+
 int out_ans(char *str){
 	int i=0;
 	int p=0,q=0;
@@ -233,11 +234,20 @@ int main(int argc,char *argv[])
 					 strcpy(src,argv[1]);
 				 }
 				 break;
-		default: printf("help:  Gtrans [input language 'en'or'zh_CN'--default 'en'] ['string']\n");
+    	default: 
+                 break;
+                 printf("help:  Gtrans [input language 'en'or'zh_CN'--default 'en'] ['string']\n");
 				 return 0;
 	}
-	translate_engine(argv[argc-1]);
+    char bu[4096];
+    memset(bu, 0, sizeof(bu));
+    int i = 0;
+    for(i = 1; i< argc; i++){
+        strcat(bu, argv[i]);
+        strcat(bu, " ");
+    }
+	translate_engine(bu);
 	code_convert("gb2312","utf-8",result,strlen(result),result_converted,BUFFER);
-	printf("%s\n",result_converted);
+	//printf("%s\n",result_converted);
 	return 0;
 }
